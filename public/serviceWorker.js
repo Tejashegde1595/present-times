@@ -1,4 +1,5 @@
-let CACHE_NAME = 'my-site-cache-v1';
+let CACHE_STATIC = 'static';
+let CACHE_DYNAMIC = 'dynamic';
 const urlsToCache = [
 '/',
 '/index.html'
@@ -6,7 +7,7 @@ const urlsToCache = [
 self.addEventListener('install', function(event) {
 // Perform install steps
     event.waitUntil(
-        caches.open(CACHE_NAME).then(function(cache) {
+        caches.open(CACHE_STATIC).then(function(cache) {
             console.log('Opened cache');
             return cache.addAll(urlsToCache);
         })
@@ -16,11 +17,13 @@ self.addEventListener('install', function(event) {
 
 
 self.addEventListener('fetch', function(event) {
-    event.respondWith(caches.match(event.request).then(function(response) {
-        if (response) {
-            return response;
-        }
-        return fetch(event.request);
+    event.respondWith(fetch(event.request).then((res)=>{
+        return caches.open(CACHE_DYNAMIC).then((cache)=>{
+            cache.put(event.request.url,res.clone());
+            return res;
         })
-    );
+    }).catch(function(err){
+        return caches.match(event.request);
+    })
+    )
 });

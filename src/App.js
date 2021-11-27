@@ -3,6 +3,7 @@ import News from './components/news/news'
 import HttpService from './service/http.service'
 import './App.css'
 
+export const config = { amp: true }
 class App extends Component{
 
   constructor(props){
@@ -11,7 +12,7 @@ class App extends Component{
       news: null,
       isMenuShown: false,
       isLoaderShown: false,
-      countryCode: 'jp'
+      countryCode: 'in'
     }
   }
 
@@ -53,6 +54,7 @@ class App extends Component{
 
   handleCountry = (e) => {
     this.setState({countryCode: e.target.value});
+    this.getNewsData(e.target.value);
   }
 
 
@@ -92,8 +94,8 @@ class App extends Component{
                 </li>
                 <li className="nav__items">
                     <select  onChange={this.handleCountry} className="nav__select">
-                      <option value="jp" > 🇯🇵 Japan</option>
-                      <option value="ph"> 🇵🇭 Philippines</option>
+                      <option value="in" > IN INDIA</option>
+                      <option value="us"> US US</option>
                     </select>
                 </li>
             </ul>
