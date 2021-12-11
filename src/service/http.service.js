@@ -1,4 +1,4 @@
-const baseUrl = `http://54.226.18.27:8080/news?`;
+const baseUrl = `https://b2kwq7bhkd.execute-api.us-east-1.amazonaws.com/news?`;
 const category = `&category=`;
 const country = `country=`;
 const API_KEY="08e3fdb043fc41f8b43e35ccf3d18b8f";
