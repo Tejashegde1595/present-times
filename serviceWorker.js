@@ -2,7 +2,10 @@ let CACHE_STATIC = 'static';
 let CACHE_DYNAMIC = 'dynamic';
 const urlsToCache = [
 '/',
-'/index.html'
+'/index.html',
+'../content/1.amp.html',
+'../content/2.amp.html',
+'../content/3.amp.html'
 ];
 self.addEventListener('install', function(event) {
 // Perform install steps

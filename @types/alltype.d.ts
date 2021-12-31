@@ -1,0 +1,1 @@
+declare module 'react-amp-document/react-amp-document'

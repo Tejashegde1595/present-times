@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import News from './components/news/news'
 import HttpService from './service/http.service'
 import './App.css'
-
+import {Link} from 'react-router-dom';
 export const config = { amp: true }
+
+
 class App extends Component{
 
   constructor(props){
@@ -57,7 +59,6 @@ class App extends Component{
     this.getNewsData(e.target.value);
   }
 
-
   render() {
     return (
       <div className="app">
@@ -91,6 +92,9 @@ class App extends Component{
                 </li>
                 <li className="nav__items">
                     <button className="nav__button" onClick={this.handleCategory} value={"technology"}>Technology</button>
+                </li>
+                <li className="nav__items">
+                    <button className="nav__button"  value={"article"}><Link to="/amp">Articles</Link></button>
                 </li>
                 <li className="nav__items">
                     <select  onChange={this.handleCountry} className="nav__select">
