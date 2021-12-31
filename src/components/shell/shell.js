@@ -15,8 +15,7 @@
  */
 
 import React from 'react';
-import { Container,Navbar  } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Container} from 'react-bootstrap';
 import Home from '../home/home';
 import './shell.css';
 

@@ -12,12 +12,12 @@ const News = (props) =>{
                 item =>
                     <div className="news__card fade-in-up">
                         <div className="news__img">
-                            <img src={item.urlToImage ? item.urlToImage : "http://vollrath.com/ClientCss/images/VollrathImages/No_Image_Available.jpg"}/>
+                            <img alt="loading" src={item.urlToImage ? item.urlToImage : "http://vollrath.com/ClientCss/images/VollrathImages/No_Image_Available.jpg"}/>
                         </div>
                         <div className="news__info">
                             <h3>{item.title}</h3>
                             <p>{item.description}</p>
-                            <a href={item.url} target="_blank">Read More</a>
+                            <a href={item.url}>Read More</a>
                         </div>
                     </div>
                                     

@@ -5,7 +5,6 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Switch,
   useParams
 } from "react-router-dom";
 import Shell from '../src/components/shell/shell';
