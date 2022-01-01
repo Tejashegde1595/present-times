@@ -23,6 +23,8 @@ ReactDOM.render((
     </Route>
     <Route path="/amp" element={<Shell/>} >
     </Route>
+    <Route path="/index.html" element={<App/>}>
+    </Route>
     <Route path="/" element={<App/>} >
     </Route>
   </Routes>
