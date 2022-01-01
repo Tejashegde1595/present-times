@@ -17,15 +17,16 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 import './article.css'
-
+const url='https://b2kwq7bhkd.execute-api.us-east-1.amazonaws.com';
 /**
  * A snippet of an AMP document that links to the full content.
  */
 export default class Article extends React.Component {
   render() {
+    console.log("image url"+this.props.image);
     return (
       <Link to={this.props.src}>
-        <div className='article' style={{backgroundImage: 'url(' + this.props.image + ')'}}>
+        <div className='article' style={{backgroundImage: 'url(' +url+ this.props.image + ')'}}>
           <div className='scrim-top'></div>
           <div className='scrim-bottom'></div>
           <h3>{this.props.title}</h3>

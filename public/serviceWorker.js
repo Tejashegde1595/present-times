@@ -20,6 +20,7 @@ self.addEventListener('install', function(event) {
 
 
 self.addEventListener('fetch', function(event) {
+    event.request.url.replace("http://localhost:3000","https://b2kwq7bhkd.execute-api.us-east-1.amazonaws.com");
     event.respondWith(fetch(event.request).then((res)=>{
         return caches.open(CACHE_DYNAMIC).then((cache)=>{
             cache.put(event.request.url,res.clone());

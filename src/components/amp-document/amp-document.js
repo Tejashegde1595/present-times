@@ -1,6 +1,6 @@
 import React from 'react';
 import './amp-document.css'
-
+const baseUrl='https://b2kwq7bhkd.execute-api.us-east-1.amazonaws.com';
 /**
  * Fetches the AMP document at a given `src` URL and renders it via Shadow DOM.
  */
@@ -55,7 +55,7 @@ class AMPDocument extends React.Component {
   componentDidMount() {
     this.container_.addEventListener('click', this.boundClickListener_);
 
-    this.fetchAndAttachAmpDoc_(this.props.src);
+    this.fetchAndAttachAmpDoc_(baseUrl+this.props.src);
   }
 
   componentWillUnmount() {
@@ -70,7 +70,7 @@ class AMPDocument extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.fetchAndAttachAmpDoc_(nextProps.src);
+    this.fetchAndAttachAmpDoc_(baseUrl+nextProps.src);
   }
 
   render() {
@@ -213,7 +213,7 @@ class AMPDocument extends React.Component {
     }
 
     if (a && a.href) {
-      const url = new URL(a.href);
+      const url = baseUrl;
       if (url.origin === window.location.origin) {
         // Perform router push instead of page navigation.
         e.preventDefault();

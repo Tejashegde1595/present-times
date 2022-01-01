@@ -31,7 +31,7 @@ export default class Shell extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/documents').then(response => {
+    fetch('https://b2kwq7bhkd.execute-api.us-east-1.amazonaws.com/documents').then(response => {
       console.log("Shell called with props",this.props);
       console.log(this.props.children);
       if (response.status !== 200) {
