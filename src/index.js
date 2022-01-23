@@ -23,7 +23,19 @@ ReactDOM.render((
     </Route>
     <Route path="/amp" element={<Shell/>} >
     </Route>
-    <Route path="/index.html" element={<App/>}>
+    <Route path="/sports" element={<App genre="sports"/>}>
+    </Route>
+    <Route path="/science" element={<App genre="science"/>}>
+    </Route>
+    <Route path="/entertainment" element={<App genre="entertainment"/>}>
+    </Route>
+    <Route path="/business" element={<App genre="business"/>}>
+    </Route>
+    <Route path="/general" element={<App genre="general"/>}>
+    </Route>
+    <Route path="/health" element={<App genre="health"/>}>
+    </Route>
+    <Route path="/technology" element={<App genre="technology"/>}>
     </Route>
     <Route path="/" element={<App/>} >
     </Route>

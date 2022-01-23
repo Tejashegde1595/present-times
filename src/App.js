@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component,useEffect  }from 'react'
 import News from './components/news/news'
 import HttpService from './service/http.service'
 import './App.css'
 import {Link} from 'react-router-dom';
 export const config = { amp: true }
+
 
 
 class App extends Component{
@@ -14,7 +15,29 @@ class App extends Component{
       news: null,
       isMenuShown: false,
       isLoaderShown: false,
-      countryCode: 'in'
+      countryCode: 'in',
+      category:'business',
+      alexaState:'business'
+    }
+  }
+
+  componentDidMount() {
+    console.log("this is for props");
+  }
+
+  async loadData() {
+     try {
+      return fetch("https://p3l7r3j7bc.execute-api.us-east-1.amazonaws.com/prod/")
+      .then(response => response.json()).then(responseJson =>{
+        console.log(responseJson.genre);
+        let genre = responseJson.genre
+        if(this.state.alexaState!=genre){
+          this.setState({alexaState:genre});
+          this.getNewsData(genre);
+        }
+      });
+    } catch (e) {
+        console.log(e);
     }
   }
 
@@ -35,7 +58,16 @@ class App extends Component{
   }
   
   componentWillMount(){
-    this.getNewsData('business');
+    console.log("Props is ",this.props.genre);
+    if(this.props.genre!=null || this.props.genre!=undefined){
+      this.setState({category:this.props.genre})
+      console.log("Category is ",this.state.category);
+      this.getNewsData(this.props.genre);
+    }else{
+      console.log("Else for all ");
+      this.setState({category:'business'})
+      this.getNewsData(this.state.category);
+    }
   }
 
   handleCategory = (event) =>{
@@ -73,25 +105,25 @@ class App extends Component{
                     <input type="text" className="nav__search" placeholder="🔍 Search News" onKeyUp={this.handleKeyPress}/>
                 </li>
                 <li className="nav__items">
-                <button className="nav__button" onClick={this.handleCategory} value={"business"}>Business</button>
+                <button className="nav__button" onClick={event =>  window.location.href='/business'}>Business</button>
                 </li>
                 <li className="nav__items">
-                    <button className="nav__button" onClick={this.handleCategory} value={"entertainment"}>Entertainment</button>
+                    <button className="nav__button" onClick={event =>  window.location.href='/entertainment'}>Entertainment</button>
                 </li>
                 <li className="nav__items">
-                    <button className="nav__button" onClick={this.handleCategory} value={"general"}>General</button>
+                    <button className="nav__button" onClick={event =>  window.location.href='/general'}>General</button>
                 </li>
                 <li className="nav__items">
-                    <button className="nav__button" onClick={this.handleCategory} value={"health"}>Health</button>
+                    <button className="nav__button" onClick={event =>  window.location.href='/health'} >Health</button>
                 </li>
                 <li className="nav__items">
-                    <button className="nav__button" onClick={this.handleCategory} value={"science"}>Science</button>
+                    <button className="nav__button" onClick={event =>  window.location.href='/science'} >Science</button>
                 </li>
                 <li className="nav__items">
-                    <button className="nav__button" onClick={this.handleCategory} value={"sports"}>Sports</button>
+                    <button className="nav__button" onClick={event =>  window.location.href='/sports'} >Sports</button>
                 </li>
                 <li className="nav__items">
-                    <button className="nav__button" onClick={this.handleCategory} value={"technology"}>Technology</button>
+                    <button className="nav__button" onClick={event =>  window.location.href='/technology'}>Technology</button>
                 </li>
                 <li className="nav__items">
                     <button className="nav__button"  value={"article"}><Link to="/amp">Articles</Link></button>
