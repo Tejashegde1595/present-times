@@ -1,4 +1,4 @@
-import React, { Component,useEffect  }from 'react'
+import React, { Component }from 'react'
 import News from './components/news/news'
 import HttpService from './service/http.service'
 import './App.css'
@@ -31,7 +31,7 @@ class App extends Component{
       .then(response => response.json()).then(responseJson =>{
         console.log(responseJson.genre);
         let genre = responseJson.genre
-        if(this.state.alexaState!=genre){
+        if(this.state.alexaState!==genre){
           this.setState({alexaState:genre});
           this.getNewsData(genre);
         }
@@ -59,7 +59,7 @@ class App extends Component{
   
   componentWillMount(){
     console.log("Props is ",this.props.genre);
-    if(this.props.genre!=null || this.props.genre!=undefined){
+    if(this.props.genre!==null || this.props.genre!==undefined){
       this.setState({category:this.props.genre})
       console.log("Category is ",this.state.category);
       this.getNewsData(this.props.genre);
