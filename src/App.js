@@ -59,10 +59,10 @@ class App extends Component{
   
   componentWillMount(){
     console.log("Props is ",this.props.genre);
-    if(this.props.genre!==null || this.props.genre!==undefined){
+    if(this.props.genre!==undefined){
       this.setState({category:this.props.genre})
       console.log("Category is ",this.state.category);
-      this.getNewsData(this.state.category);
+      this.getNewsData(this.props.genre);
     }else{
       console.log("Else for all ");
       this.setState({category:'business'})

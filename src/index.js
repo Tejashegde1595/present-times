@@ -12,14 +12,15 @@ import App from './App';
 
 const IntroRedirect = () => {
   const { document } = useParams();
-  return <AMPDocument replace src={`/content/${document}`} /> 
+  return <AMPDocument replace src={`/${document}`} /> 
 };
+
 
 
 ReactDOM.render((
   <BrowserRouter>
   <Routes>
-    <Route exact path="/content/:document"  element={<IntroRedirect/>} >
+    <Route exact path="/:document"  element={<IntroRedirect/>} >
     </Route>
     <Route path="/amp" element={<Shell/>} >
     </Route>
