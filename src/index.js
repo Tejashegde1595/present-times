@@ -40,6 +40,8 @@ ReactDOM.render((
     </Route>
     <Route path="/" element={<App/>} >
     </Route>
+    <Route path="/index.html" element={<App/>} >
+    </Route>
   </Routes>
 </BrowserRouter>
 ), document.getElementById('root'));
