@@ -62,7 +62,7 @@ class App extends Component{
     if(this.props.genre!==null || this.props.genre!==undefined){
       this.setState({category:this.props.genre})
       console.log("Category is ",this.state.category);
-      this.getNewsData(this.props.genre);
+      this.getNewsData(this.state.category);
     }else{
       console.log("Else for all ");
       this.setState({category:'business'})
@@ -89,6 +89,11 @@ class App extends Component{
   handleCountry = (e) => {
     this.setState({countryCode: e.target.value});
     this.getNewsData(e.target.value);
+  }
+
+  postNews = (e)=>{
+    const service = new HttpService();
+    service.postDocToIndexedDB();
   }
 
   render() {
@@ -124,6 +129,9 @@ class App extends Component{
                 </li>
                 <li className="nav__items">
                     <button className="nav__button" onClick={event =>  window.location.href='/technology'}>Technology</button>
+                </li>
+                <li className="nav__items">
+                    <button className="nav__button" onClick={this.postNews}>Post News</button>
                 </li>
                 <li className="nav__items">
                     <button className="nav__button"  value={"article"}><Link to="/amp">Articles</Link></button>
