@@ -9,7 +9,8 @@ import {
 } from "react-router-dom";
 import Shell from '../src/components/shell/shell';
 import App from './App';
-
+import { initializeFirebase } from './push-notification';
+initializeFirebase();
 const IntroRedirect = () => {
   const { document } = useParams();
   return <AMPDocument replace src={`/${document}`} /> 

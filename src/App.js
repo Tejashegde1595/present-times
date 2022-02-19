@@ -3,6 +3,7 @@ import News from './components/news/news'
 import HttpService from './service/http.service'
 import './App.css'
 import {Link} from 'react-router-dom';
+import { askForPermissionToReceiveNotifications } from './push-notification';
 export const config = { amp: true }
 
 
@@ -142,6 +143,9 @@ class App extends Component{
                       <option value="us"> US US</option>
                     </select>
                 </li>
+                <button onClick={askForPermissionToReceiveNotifications} >
+                    Click to receive notifications
+                </button>
             </ul>
         </nav>
         <News defaultValue={this.state.news} />
