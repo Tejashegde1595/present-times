@@ -1,7 +1,13 @@
 {
   "name": "PWA demo",
   "short_name": "Demo",
-  "start_url": "index.html",
+  "scope_url": "https://present-times-o30k54fd4-tejashegde1595.vercel.app/",
+  "intent_filters": {
+    "scope_url_scheme": "https",
+    "scope_url_host": "/present-times-o30k54fd4-tejashegde1595.vercel.app",
+    "scope_url_path": "/"
+  },
+  "start_url": "https://present-times-o30k54fd4-tejashegde1595.vercel.app/",
   "icons": [
   {
   "src": "logo192.png",
