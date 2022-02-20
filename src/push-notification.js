@@ -17,7 +17,7 @@ export const initializeFirebase = () => {
       await messaging.requestPermission();
       const token = await messaging.getToken();
       console.log('Your token is:', token);
-      
+      alert(token);
       return token;
     } catch (error) {
       console.error(error);

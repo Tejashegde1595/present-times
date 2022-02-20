@@ -143,9 +143,11 @@ class App extends Component{
                       <option value="us"> US US</option>
                     </select>
                 </li>
-                <button onClick={askForPermissionToReceiveNotifications} >
+                <li className="nav__items" >
+                  <button className="nav_button" onClick={askForPermissionToReceiveNotifications}>
                     Click to receive notifications
-                </button>
+                  </button>
+                </li>
             </ul>
         </nav>
         <News defaultValue={this.state.news} />
