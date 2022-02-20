@@ -17,9 +17,8 @@ export const initializeFirebase = () => {
       await messaging.requestPermission();
       const token = await messaging.getToken();
       console.log('Your token is:', token);
-      var database = firebase.database().ref("/users")
-      database.push({
-        name : CreateGuid(),
+      var database = firebase.database().ref("/users").child(CreateGuid())
+      database.update({
         token : token,
       }).catch(alert);
       return token;
