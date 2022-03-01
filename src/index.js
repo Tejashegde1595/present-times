@@ -10,6 +10,7 @@ import {
 import Shell from '../src/components/shell/shell';
 import App from './App';
 import { initializeFirebase } from './push-notification';
+import Pwarticle from './components/pwa-article/pwarticle';
 initializeFirebase();
 const IntroRedirect = () => {
   const { document } = useParams();
@@ -38,6 +39,8 @@ ReactDOM.render((
     <Route path="/health" element={<App genre="health"/>}>
     </Route>
     <Route path="/technology" element={<App genre="technology"/>}>
+    </Route>
+    <Route path="/article" element={<Pwarticle/>}>
     </Route>
     <Route path="/" element={<App/>} >
     </Route>

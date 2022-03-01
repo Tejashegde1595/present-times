@@ -2,13 +2,6 @@ h1, h2, p, body, figure, ul {
     margin: 0;
     padding: 0;
 }
-body {
-    background: #ffffff;
-    font-family: 'Muli', sans-serif;
-    font-size: 40px;
-    line-height: 22px;
-    color: #333;
-}
 .hr {
     background-color: #37dc8c;
     width: 15%;
@@ -33,11 +26,9 @@ body {
     margin-top: 15px;
     padding: 0px 20px;
 }
-h1 {
-    font-family: 'Playfair Display', serif;
-}
 .heading {
     font-size: 27pt;
+    font-family: 'Playfair Display', serif;
     font-weight: 700;
     margin-bottom: 0.3em;
     letter-spacing: .33pt;
@@ -47,6 +38,7 @@ h1.related {
     font-size: 18pt;
     line-height: 20pt;
     margin-bottom: 1em;
+    font-family: 'Playfair Display', serif;
 }
 ul.related {
     list-style-type: none;
@@ -81,6 +73,7 @@ ul.related amp-img {
     line-height: 18pt;
     letter-spacing: 0.6pt;
     text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
 }
 .kicker {
     color: #666;
